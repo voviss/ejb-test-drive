@@ -5,12 +5,8 @@ import java.math.BigDecimal;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.inject.Named;
 
-import my.banking.app.data.AccountListProducer;
 import my.banking.app.service.MoneyTransfer;
 
 @Named("moneyTransferController")

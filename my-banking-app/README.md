@@ -10,8 +10,8 @@ The quickstart demonstrates the deployment of an EAR artifact to Red Hat JBoss E
 
 The example is composed of three Maven projects, each with a shared parent. The projects are as follows:
 
-1. `web`: This project contains the JSF pages, managed beans and EJBs.
-
+1. `ejb`: This project contains the EJBs.
+2. `web`: This project contains the JSF pages and managed beans.
 3. `ear`: This project builds the EAR artifact and pulls in the EJB and Web artifacts.
 
 The root `pom.xml` builds each of the subprojects in the above order and deploys the EAR archive to the server.
