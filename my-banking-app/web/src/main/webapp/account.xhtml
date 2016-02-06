@@ -13,15 +13,17 @@
     <div id="container">
         <h:form id="response">
             <h:panelGrid columns="2">
-                <h:outputLabel>Account:</h:outputLabel>
-                <h:outputLabel value="#{account.balance}" />
+                <h:outputLabel>Nostro account:</h:outputLabel>
+                <h:outputLabel value="#{account.nostroBalance}" />
+                <h:outputLabel>Vostro account:</h:outputLabel>
+                <h:outputLabel value="#{account.vostroBalance}" />
             </h:panelGrid>
         </h:form>
         <h:form id="accountForm">
             <h:panelGrid columns="3">
                 <h:outputLabel>Make transer:</h:outputLabel>
-                <h:inputText value="#{transfer}" />
-                <h:commandButton id="transfer" value="transfer" action="#{account.makeTransfer(transfer)}">
+                <h:inputText value="#{money}" />
+                <h:commandButton id="transfer" value="transfer" action="#{account.makeTransfer(money)}">
                 </h:commandButton>
             </h:panelGrid>
         </h:form>

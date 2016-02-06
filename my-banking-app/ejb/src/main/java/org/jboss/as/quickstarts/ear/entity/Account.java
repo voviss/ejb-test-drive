@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.ear.controller;
+package org.jboss.as.quickstarts.ear.entity;
 
 import java.io.Serializable;
 
@@ -31,10 +31,5 @@ public class Account implements Serializable {
 	}
 	public void setBalance(double balance) {
 		this.balance = balance;
-	}
-	
-	public double makeTransfer(double transfer){
-		balance += transfer;
-		return balance;
-	}
+	}	
 }
