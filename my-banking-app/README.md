@@ -1,34 +1,20 @@
-ejb-in-ear: Deployment of an EAR Containing a JSF WAR and EJB JAR
+my-banking-app
 ====================================================================
-Author: Paul Robinson  
-Level: Intermediate  
-Technologies: EJB, EAR  
-Summary: The `ejb-in-ear` quickstart demonstrates how to deploy an EAR archive that contains a *JSF 2.1* WAR and an *EJB 3.1* JAR.  
-Target Product: JBoss EAP  
-Source: <https://github.com/jboss-developer/jboss-eap-quickstarts/>  
+Author: Vladimir S
+Source: <https://github.com/voviss/ejb-test-drive/>  
 
 What is it?
 -----------
 
-The `ejb-in-ear` quickstart demonstrates the deployment of an EAR artifact to Red Hat JBoss Enterprise Application Platform. The EAR contains: *JSF 2.1* WAR and an *EJB 3.1* JAR.
+The quickstart demonstrates the deployment of an EAR artifact to Red Hat JBoss Enterprise Application Platform.
 
 The example is composed of three Maven projects, each with a shared parent. The projects are as follows:
 
-1. `ejb`: This project contains the EJB code and can be built independently to produce the JAR archive.
-
-2. `web`: This project contains the JSF pages and the managed bean.
+1. `web`: This project contains the JSF pages, managed beans and EJBs.
 
 3. `ear`: This project builds the EAR artifact and pulls in the EJB and Web artifacts.
 
 The root `pom.xml` builds each of the subprojects in the above order and deploys the EAR archive to the server.
-
-The example follows the common "Hello World" pattern. These are the steps that occur:
-
-1. A JSF page asks the user for their name.
-2. On clicking _Greet_, the name is sent to a managed bean named `Greeter`.
-3. On setting the name, the `Greeter` invokes the `GreeterEJB`, which was injected to the managed bean. Notice the field annotated with `@EJB`.
-4. The response from invoking the `GreeterEJB` is stored in a field (message) of the managed bean.
-5. The managed bean is annotated as `@SessionScoped`, so the same managed bean instance is used for the entire session. This ensures that the message is available when the page reloads and is displayed to the user.
 
 System requirements
 -------------------
@@ -71,16 +57,18 @@ _NOTE: The following build command assumes you have configured your Maven user s
 
         mvn clean install jboss-as:deploy
 
-4. This will deploy `target/jboss-ejb-in-ear.ear` to the running instance of the server.
+4. This will deploy `target/my-banking-app.ear` to the running instance of the server.
 
  
 
 Access the application 
 ---------------------
 
-The application will be running at the following URL <http://localhost:8080/jboss-ejb-in-ear>.
+The application will be running at the following URLs:
+<http://localhost:8080/my-banking-app>
+<http://localhost:8080/my-banking-app/moneyTransfer.jsf>
+<http://localhost:8080/my-banking-app/accountRegistration.jsf>
 
-Enter a name in the input field and click the _Greet_ button to see the response.
 
 
 Undeploy the Archive

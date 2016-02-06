@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<h1>Money Transfer Service</h1>
+
+		<div id="container">
+			<h:form id="accountForm">
+				<h:panelGrid columns="2">
+					<h:outputLabel>Account id:</h:outputLabel>
+					<h:inputText value="#{accountId}" />
+					<h:outputLabel>Money:</h:outputLabel>
+					<h:inputText value="#{money}" />
+					<h:commandButton id="transfer" value="transfer"
+						action="#{moneyTransferController.makeTransfer(accountId, money)}">
+					</h:commandButton>
+					<h:messages styleClass="messages" errorClass="invalid"
+						infoClass="valid" warnClass="warning" globalOnly="true" />
+				</h:panelGrid>
+			</h:form>
+			
+			<h2>Accounts:</h2>
+			<h:panelGroup rendered="#{empty accounts}">
+				<em>No registered accounts.</em>
+			</h:panelGroup>
+			<h:dataTable var="_account" value="#{accounts}"
+				rendered="#{not empty accounts}" styleClass="simpletablestyle">
+				<h:column>
+					<f:facet name="header">Id</f:facet>
+                #{_account.id}
+         		</h:column>
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+                #{_account.name}
+         		</h:column>
+				<h:column>
+					<f:facet name="header">Balance</f:facet>
+                #{_account.balance}
+         		</h:column>
+			</h:dataTable>
+
+		</div>
+	</ui:define>
+</ui:composition>
