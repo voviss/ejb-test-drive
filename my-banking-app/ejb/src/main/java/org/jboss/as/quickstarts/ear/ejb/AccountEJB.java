@@ -1,10 +1,10 @@
 package org.jboss.as.quickstarts.ear.ejb;
 
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 
 import org.jboss.as.quickstarts.ear.entity.Account;
 
-@Stateful
+@Stateless
 public class AccountEJB {
 
     public double makeTransfer(Account debit, Account credit, double money) {
