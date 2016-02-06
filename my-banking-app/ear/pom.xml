@@ -57,7 +57,7 @@
                         <webModule>
                             <groupId>my.banking.app</groupId>
                             <artifactId>my-banking-app-web</artifactId>
-                            <contextRoot>/my-banking-app-ear</contextRoot>
+                            <contextRoot>/my-banking-app</contextRoot>
                         </webModule>
                     </modules>
                     <fileNameMapping>no-version</fileNameMapping>
