@@ -35,8 +35,6 @@ public class AccountListProducer {
 
     private List<Account> accounts;
 
-    // @Named provides access the return value via the EL variable name "accounts" in the UI (e.g.,
-    // Facelets or JSP view)
     @Produces
     @Named
     public List<Account> getAccounts() {
@@ -49,8 +47,8 @@ public class AccountListProducer {
 
     @PostConstruct
     public void retrieveAllMembersOrderedByName() {
-        //accounts = memberRepository.findAllOrderedByIdJPACriteria();
+        accounts = memberRepository.findAllOrderedByIdJPACriteria();
         //accounts = memberRepository.findAllOrderedByIdViaHibernateNativeApi();
-        accounts = memberRepository.findAllAccountsByIdJPAQL();
+        //accounts = memberRepository.findAllAccountsByIdJPAQL();
     }
 }

@@ -23,11 +23,7 @@ public class AccountRegistration {
 
     public void register(Account account) throws Exception {
         log.info("Registering " + account.getName());
-        //em.persist(account);
-
-        // using Hibernate session(Native API) and JPA entitymanager
-        Session session = (Session) em.getDelegate();
-        session.persist(account);
+        em.persist(account);
         memberEventSrc.fire(account);
     }
 }

@@ -38,6 +38,6 @@ public class AccountRepository {
     }
     
     public List<Account> findAllAccountsByIdJPAQL() {
-        return em.createQuery("select a from Account order by a.id", Account.class).getResultList();
+        return em.createQuery("select a from Account a order by a.id", Account.class).getResultList();
     }
 }
