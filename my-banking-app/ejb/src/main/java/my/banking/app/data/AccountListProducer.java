@@ -49,6 +49,8 @@ public class AccountListProducer {
 
     @PostConstruct
     public void retrieveAllMembersOrderedByName() {
-        accounts = memberRepository.findAllOrderedById();
+        //accounts = memberRepository.findAllOrderedByIdJPACriteria();
+        //accounts = memberRepository.findAllOrderedByIdViaHibernateNativeApi();
+        accounts = memberRepository.findAllAccountsByIdJPAQL();
     }
 }
