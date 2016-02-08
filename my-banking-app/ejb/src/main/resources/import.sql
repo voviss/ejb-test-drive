@@ -17,4 +17,13 @@
 
 -- You can use this file to load seed data into the database using SQL statements
 insert into Account (id, name, balance) values (0, 'Nostro account', 10000000) 
-insert into Account (id, name, balance) values (1, 'Vladimir Skarupelov', 200000) 
+insert into Account (id, name, balance) values (1, 'Vladimir Skarupelov', 200000)
+insert into Account (id, name, balance) values (2, 'John Doe', 0)
+insert into Account (id, name, balance) values (3, 'Samuel Mullins', 5000)
+insert into Account (id, name, balance) values (4, 'Évariste Bisset', 10000)
+insert into Account (id, name, balance) values (5, 'Francine Desjardins', 15000)
+insert into Account (id, name, balance) values (6, 'Lili Paul', 20000)
+insert into Account (id, name, balance) values (7, 'Pascaline Robert', 50000)
+insert into Account (id, name, balance) values (8, 'Madeline Eustis', 100000)
+insert into Account (id, name, balance) values (9, 'Laura Solomon', 150000)
+insert into Account (id, name, balance) values (10, 'Andres Proulx', 300000)

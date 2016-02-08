@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import my.banking.app.mdb.MoneyTransferNotifier;
 import my.banking.app.model.Account;
 
 @Stateless
@@ -21,6 +21,9 @@ public class MoneyTransfer {
 	
     @Inject
     private Event<Account> accountEventSrc;
+    
+    @Inject
+    private MoneyTransferNotifier moneyTransferLocalNotifier;
 
 	public void makeBankToClientTransfer(Long creditAccountId, BigDecimal money) {
 		makeClientToClientTransfer(Account.NOSTRO_ACCOUNT_ID, creditAccountId, money);
@@ -35,6 +38,8 @@ public class MoneyTransfer {
 		log.info("creditAccountId=" + creditAccountId);
 		log.info("money=" + money.toString());
 		makeTransfer(debitAccountId, creditAccountId, money);
+		moneyTransferLocalNotifier.sendNotification("The amount of " + money + " has been transfered on your account " + creditAccountId);
+		
 	}
 
 	private void makeTransfer(Long debitAccountId, Long creditAccountId, BigDecimal money) {
