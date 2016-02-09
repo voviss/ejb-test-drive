@@ -3,6 +3,8 @@ package my.banking.app.mdb;
 import java.util.logging.Logger;
 
 import javax.annotation.Resource;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.enterprise.context.ApplicationScoped;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
@@ -23,6 +25,7 @@ public class MoneyTransferNotifier {
     @Resource(mappedName = "java:/queue/moneyTransferNotificationQueue")
     private Queue queue;
     
+    @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
     public void sendNotification(String content){
         Connection connection = null;
         try {
