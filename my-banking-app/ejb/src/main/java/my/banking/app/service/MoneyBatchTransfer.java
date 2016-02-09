@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Schedule;
 import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
@@ -15,8 +16,10 @@ import javax.inject.Inject;
 import my.banking.app.data.AccountRepository;
 import my.banking.app.model.Account;
 
+
 @Singleton
 @TransactionManagement(TransactionManagementType.CONTAINER)
+@Startup
 public class MoneyBatchTransfer {
 
 	@Inject
