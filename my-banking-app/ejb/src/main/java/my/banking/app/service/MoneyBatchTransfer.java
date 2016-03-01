@@ -28,7 +28,7 @@ public class MoneyBatchTransfer {
 	@EJB
 	private MoneyTransfer moneyTransfer;
 	
-	@Schedule(second="*/15", minute="*", hour="*", dayOfMonth="*", month="*", dayOfWeek = "*", year="*")
+	@Schedule(second="0", minute="*/1", hour="*", dayOfMonth="*", month="*", dayOfWeek = "*", year="*")
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void processBatchTransfer(){
 		List<Account> accounts = accountRepository.findAllAccountsByIdJPAQL();
