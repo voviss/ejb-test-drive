@@ -19,10 +19,13 @@ package my.banking.app.model;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.persistence.Version;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -39,16 +42,24 @@ public class Account implements Serializable {
 	public static final Long NOSTRO_ACCOUNT_ID = 0L;
 
     @Id
+    @GeneratedValue
+    @Column(name="ID")
     private Long id;
 
     @NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")
+    @Column(name="NAME")
     private String name;
 
     @NotNull
     @Digits(fraction = 2, integer = 20)
+    @Column(name="BALANCE")
     private BigDecimal balance;
+    
+    @Version
+    @Column(name="VERSION")
+    private Long version;
 
     public Long getId() {
         return id;
